@@ -4,7 +4,7 @@ beforeEach(() => {
   jest.useFakeTimers();
 });
 
-describe('...', () => {
+describe('basic', () => {
   it('called throttled times', () => {
     const mockedFn = jest.fn();
     const fn = throttle(mockedFn, 0);
@@ -26,7 +26,7 @@ describe('...', () => {
   });
 });
 
-describe('...', () => {
+describe('resolve/reject', () => {
   beforeEach(() => {
     jest.useFakeTimers();
   });

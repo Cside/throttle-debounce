@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="text" />
+    <script type="module">
+      import throttle from '/throttle.js';
+      const interval = 2000;
+      const fn = throttle(
+        () => console.log(`throttole at ${interval} ms interval`),
+        interval,
+      );
+      document.querySelector('input').addEventListener('input', () => {
+        fn();
+      });
+    </script>
+  </body>
+</html>
