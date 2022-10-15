@@ -4,7 +4,8 @@ export default (fn: (...args: any[]) => void, wait: number) => {
   return (...args: any[]) => {
     return new Promise((resolve) => {
       if (timerId !== null) {
-        return resolve(null);
+        resolve(null);
+        return;
       }
       timerId = setTimeout(() => {
         timerId = null;

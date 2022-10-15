@@ -4,13 +4,21 @@
     <input type="text" />
     <script type="module">
       import throttle from '/throttle.js';
+      import debounce from '/debounce.js';
+
       const interval = 2000;
-      const fn = throttle(
+
+      const throttled = throttle(
         () => console.log(`throttole at ${interval} ms interval`),
         interval,
       );
+      const debounced = debounce(
+        () => console.log(`debounce at ${interval} ms interval`),
+        interval,
+      );
       document.querySelector('input').addEventListener('input', () => {
-        fn();
+        throttled();
+        debounced();
       });
     </script>
   </body>
