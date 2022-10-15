@@ -7,11 +7,10 @@ for (const obj of [
 ]) {
   const { name, func } = obj;
   describe(name, () => {
-    beforeEach(() => {
-      jest.useFakeTimers();
-    });
-
     describe('basic', () => {
+      beforeAll(() => jest.useFakeTimers());
+      afterAll(() => jest.useRealTimers());
+
       it('called decreased times', () => {
         const mockedFn = jest.fn();
         const fn = func(mockedFn, 0);
@@ -28,58 +27,38 @@ for (const obj of [
           fn(...args);
 
           jest.runAllTimers();
-          expect(mockedFn).toHaveBeenCalledWith(...args);
+          expect(mockedFn).toHaveBeenLastCalledWith(...args);
         }
       });
     });
-
     describe('resolve/reject', () => {
-      beforeEach(() => {
-        jest.useFakeTimers();
-      });
-      afterEach(() => {
-        jest.runAllTimers();
-      });
       it('resolves in sync fn', () => {
-        expect.assertions(1);
-
-        const mockedFn = jest.fn(() => 'resolve');
-        const fn = func(mockedFn, 0);
-        expect(fn()).resolves.toBe('resolve');
+        const fn = func(() => 'resolve', 0);
+        return expect(fn()).resolves.toBe('resolve');
       });
       it('resolves in async fn', () => {
-        const mockedFn = jest.fn(() => {
-          return new Promise((resolve) => {
-            setTimeout(() => {
-              resolve('resolve');
-            }, 0);
-          });
-        });
-        const fn = func(mockedFn, 0);
+        const fn = func(() => Promise.resolve('resolve'), 0);
 
         if (name === 'throttle') {
-          expect.assertions(2);
-          expect(fn()).resolves.toBe('resolve');
-          expect(fn()).resolves.toBe(null);
+          return expect(Promise.all([fn(), fn()])).resolves.toEqual([
+            'resolve',
+            null,
+          ]);
         } else {
           // 最初の call は clearTimeout されるので resolve されない
-          expect.assertions(1);
           fn();
-          expect(fn()).resolves.toBe('resolve');
+          return expect(fn()).resolves.toBe('resolve');
         }
       });
       it('rejects in async fn', () => {
-        expect.assertions(1);
-
-        const mockedFn = jest.fn(() => {
-          return new Promise((_, reject) => {
-            setTimeout(() => {
-              reject('reject');
-            }, 0);
-          });
-        });
-        const fn = func(mockedFn, 0);
-        expect(fn()).rejects.toBe('reject');
+        const fn = func(() => Promise.reject('reject'), 0);
+        return expect(fn()).rejects.toBe('reject');
+      });
+      it('rejects in throwing fn', () => {
+        const fn = func(() => {
+          throw 'reject';
+        }, 0);
+        return expect(fn()).rejects.toBe('reject');
       });
     });
   });
