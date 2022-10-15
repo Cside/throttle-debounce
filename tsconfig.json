@@ -7,6 +7,9 @@
     "esModuleInterop": true,
     "jsx": "react",
     "rootDir": "src",
-    "outDir": "dist"
-  }
+    "outDir": "public"
+  },
+  "exclude": [
+    "src/**/*.spec.ts"
+  ]
 }
