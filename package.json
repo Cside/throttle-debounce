@@ -1,6 +1,8 @@
 {
   "type": "module",
   "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
     "eslint": "eslint src/**/*.ts",
     "eslint:fix": "eslint --fix src/**/*.ts",
     "prettier": "prettier --write . '!dist/**/*'",
