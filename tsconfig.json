@@ -9,7 +9,5 @@
     "rootDir": "src",
     "outDir": "public"
   },
-  "exclude": [
-    "src/**/*.spec.ts"
-  ]
+  "exclude": ["src/**/*.spec.ts"]
 }

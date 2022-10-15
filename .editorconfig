@@ -3,8 +3,5 @@ root = true
 [*]
 indent_style = space
 
-[*.{css}]
-indent_size = 4
-
-[*.{html,js,jsx,ts,tsx,json}]
+[*.{js,ts,json}]
 indent_size = 2
