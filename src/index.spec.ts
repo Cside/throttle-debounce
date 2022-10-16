@@ -1,5 +1,4 @@
-import debounce from './debounce';
-import throttle from './throttle';
+import { debounce, throttle } from './index';
 
 for (const obj of [
   { name: 'throttle', func: throttle },
