@@ -7,7 +7,7 @@
     "watch": "tsc -w",
     "eslint": "eslint 'src/**/*.ts'",
     "eslint:fix": "eslint --fix 'src/**/*.ts'",
-    "prettier": "prettier --write .",
+    "prettier": "prettier --write . '!dist/**/*.ts'",
     "lint": "yarn run eslint:fix && yarn run prettier"
   },
   "devDependencies": {
