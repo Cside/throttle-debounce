@@ -1,13 +1,11 @@
 {
   "compilerOptions": {
     "strict": true,
-    "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "jsx": "react",
     "rootDir": "src",
-    "outDir": "dist",
     "removeComments": true,
     "declaration": true,
     "declarationMap": true,

@@ -1,0 +1,5 @@
+#!/bin/sh
+for cmd in "${@}"; do
+    $cmd &
+done
+wait;
