@@ -22,7 +22,8 @@
     "jsdom": "^20.0.1",
     "lodash.throttle": "^4.1.1",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "ts-jest": "^29.0.3"
   },
   "jest": {
     "transform": {
@@ -30,8 +31,5 @@
         "ts-jest"
       ]
     }
-  },
-  "dependencies": {
-    "ts-jest": "^29.0.3"
   }
 }
