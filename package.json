@@ -1,4 +1,6 @@
 {
+  "name": "throttle-debounce",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
