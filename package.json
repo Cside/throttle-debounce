@@ -5,8 +5,8 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "scripts": {
-    "build": "./bin/parallel 'tsc    -p tsconfig.cjs.json' 'tsc    -p tsconfig.esm.json'",
-    "watch": "./bin/parallel 'tsc -w -p tsconfig.cjs.json' 'tsc -w -p tsconfig.esm.json'",
+    "build": "ls tsconfig.*.json | xargs -L 1 -P2 -I{} tsc    -p {}",
+    "watch": "ls tsconfig.*.json | xargs -L 1 -P2 -I{} tsc -w -p {}",
     "eslint": "eslint 'src/**/*.ts'",
     "eslint:fix": "eslint --fix 'src/**/*.ts'",
     "prettier": "prettier --write . '!dist/**/*.ts'",
