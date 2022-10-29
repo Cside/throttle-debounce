@@ -62,3 +62,5 @@ for (const obj of [
     });
   });
 }
+
+export {}; // https://ichinari.work/TypeScript_20211108

@@ -7,7 +7,7 @@ var exports = __webpack_exports__;
   \**********************/
 
 
-exports.throttle = (fn, wait) => {
+const throttle = (fn, wait) => {
   let timerId = null;
   return (...args) => {
     return new Promise((resolve, reject) => {
@@ -25,7 +25,8 @@ exports.throttle = (fn, wait) => {
     });
   };
 };
-exports.debounce = (fn, wait) => {
+exports.throttle = throttle;
+const debounce = (fn, wait) => {
   let timerId = null;
   return (...args) => {
     return new Promise((resolve, reject) => {
@@ -42,6 +43,7 @@ exports.debounce = (fn, wait) => {
     });
   };
 };
+exports.debounce = debounce;
 })();
 
 var __webpack_exports__debounce = __webpack_exports__.debounce;
