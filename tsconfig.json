@@ -11,5 +11,5 @@
     "declarationMap": true,
     "sourceMap": true
   },
-  "exclude": ["src/**/*.spec.ts", "dist/**/*.d.ts"]
+  "include": ["src/index.ts"]
 }

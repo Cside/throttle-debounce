@@ -1,36 +1,54 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "./src/index.ts":
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it uses a non-standard name for the exports (exports).
+(() => {
+var exports = __webpack_exports__;
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-/***/ ((__unused_webpack_module, exports) => {
 
-eval("\n\nexports.throttle = (fn, wait) => {\n  let timerId = null;\n  return (...args) => {\n    return new Promise((resolve, reject) => {\n      if (timerId !== null) {\n        return resolve(null);\n      }\n      timerId = setTimeout(() => {\n        timerId = null;\n        try {\n          resolve(fn(...args));\n        } catch (error) {\n          reject(error);\n        }\n      }, wait);\n    });\n  };\n};\nexports.debounce = (fn, wait) => {\n  let timerId = null;\n  return (...args) => {\n    return new Promise((resolve, reject) => {\n      if (timerId) {\n        clearTimeout(timerId);\n      }\n      timerId = setTimeout(() => {\n        try {\n          resolve(fn(...args));\n        } catch (error) {\n          reject(error);\n        }\n      }, wait);\n    });\n  };\n};\n\n//# sourceURL=webpack://throttle-debounce/./src/index.ts?");
 
-/***/ })
+exports.throttle = (fn, wait) => {
+  let timerId = null;
+  return (...args) => {
+    return new Promise((resolve, reject) => {
+      if (timerId !== null) {
+        return resolve(null);
+      }
+      timerId = setTimeout(() => {
+        timerId = null;
+        try {
+          resolve(fn(...args));
+        } catch (error) {
+          reject(error);
+        }
+      }, wait);
+    });
+  };
+};
+exports.debounce = (fn, wait) => {
+  let timerId = null;
+  return (...args) => {
+    return new Promise((resolve, reject) => {
+      if (timerId) {
+        clearTimeout(timerId);
+      }
+      timerId = setTimeout(() => {
+        try {
+          resolve(fn(...args));
+        } catch (error) {
+          reject(error);
+        }
+      }, wait);
+    });
+  };
+};
+})();
 
-/******/ 	});
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/index.ts"](0, __webpack_exports__);
-/******/ 	var __webpack_export_target__ = exports;
-/******/ 	for(var i in __webpack_exports__) __webpack_export_target__[i] = __webpack_exports__[i];
-/******/ 	if(__webpack_exports__.__esModule) Object.defineProperty(__webpack_export_target__, "__esModule", { value: true });
-/******/ 	
+var __webpack_export_target__ = exports;
+for(var i in __webpack_exports__) __webpack_export_target__[i] = __webpack_exports__[i];
+if(__webpack_exports__.__esModule) Object.defineProperty(__webpack_export_target__, "__esModule", { value: true });
 /******/ })()
 ;
+//# sourceMappingURL=index.js.map

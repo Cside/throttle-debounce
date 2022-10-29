@@ -1,5 +1,6 @@
 const common = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  devtool: 'source-map',
   entry: './src/index.ts',
   resolve: {
     extensions: ['.ts', '.js'],
@@ -40,7 +41,7 @@ const common = {
   },
 };
 const commonJS = {
-  ...common,
+  ...structuredClone(common),
   output: {
     filename: 'index.js',
     path: `${__dirname}/dist/cjs`,
@@ -52,7 +53,7 @@ const commonJS = {
 commonJS.module.rules[1].use.options.configFile = 'tsconfig.cjs.json';
 
 const esModule = {
-  ...common,
+  ...structuredClone(common),
   experiments: {
     outputModule: true,
   },
