@@ -6,61 +6,27 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
+/******/ var __webpack_modules__ = ({
 
 /***/ "./src/index.ts":
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, exports) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"debounce\": () => (/* binding */ debounce),\n/* harmony export */   \"throttle\": () => (/* binding */ throttle)\n/* harmony export */ });\nconst throttle = (fn, wait) => {\n    let timerId = null;\n    return (...args) => {\n        return new Promise((resolve, reject) => {\n            if (timerId !== null) {\n                return resolve(null);\n            }\n            timerId = setTimeout(() => {\n                timerId = null;\n                try {\n                    resolve(fn(...args));\n                }\n                catch (error) {\n                    reject(error);\n                }\n            }, wait);\n        });\n    };\n};\nconst debounce = (fn, wait) => {\n    let timerId = null;\n    return (...args) => {\n        return new Promise((resolve, reject) => {\n            if (timerId) {\n                clearTimeout(timerId);\n            }\n            timerId = setTimeout(() => {\n                try {\n                    resolve(fn(...args));\n                }\n                catch (error) {\n                    reject(error);\n                }\n            }, wait);\n        });\n    };\n};\n\n\n//# sourceURL=webpack://throttle-debounce/./src/index.ts?");
+eval("\nexports.throttle = (fn, wait) => {\n    let timerId = null;\n    return (...args) => {\n        return new Promise((resolve, reject) => {\n            if (timerId !== null) {\n                return resolve(null);\n            }\n            timerId = setTimeout(() => {\n                timerId = null;\n                try {\n                    resolve(fn(...args));\n                }\n                catch (error) {\n                    reject(error);\n                }\n            }, wait);\n        });\n    };\n};\nexports.debounce = (fn, wait) => {\n    let timerId = null;\n    return (...args) => {\n        return new Promise((resolve, reject) => {\n            if (timerId) {\n                clearTimeout(timerId);\n            }\n            timerId = setTimeout(() => {\n                try {\n                    resolve(fn(...args));\n                }\n                catch (error) {\n                    reject(error);\n                }\n            }, wait);\n        });\n    };\n};\n\n\n//# sourceURL=webpack://throttle-debounce/./src/index.ts?");
 
 /***/ })
 
-/******/ 	});
+/******/ });
 /************************************************************************/
-/******/ 	// The require scope
-/******/ 	var __webpack_require__ = {};
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/index.ts"](0, __webpack_exports__, __webpack_require__);
-/******/ 	
-/******/ })()
-;
+/******/ 
+/******/ // startup
+/******/ // Load entry module and return exports
+/******/ // This entry module can't be inlined because the eval devtool is used.
+/******/ var __webpack_exports__ = {};
+/******/ __webpack_modules__["./src/index.ts"](0, __webpack_exports__);
+/******/ var __webpack_exports__debounce = __webpack_exports__.debounce;
+/******/ var __webpack_exports__throttle = __webpack_exports__.throttle;
+/******/ export { __webpack_exports__debounce as debounce, __webpack_exports__throttle as throttle };
+/******/ 

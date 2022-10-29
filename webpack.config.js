@@ -1,9 +1,9 @@
 const common = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: './src/index.ts',
-  resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'], // TODO: 後で削る
-  },
+  // resolve: {
+  //   extensions: ['.ts'],
+  // },
   module: {
     rules: [
       {
@@ -24,16 +24,23 @@ const commonJS = {
   ...common,
   output: {
     path: `${__dirname}/dist/cjs`,
-    filename: 'index.js', // TODO: cjs にできるじゃん！ と後で追記
+    library: {
+      type: 'commonjs',
+    },
   },
 };
-commonJS.module.rules[0].use.options.configFile = 'tsconfig.cjs.json';
+commonJS.module.rules[0].use.options.configFile = 'tsconfig.cjs.json'; // TODO: ./ だとエラー
 
 const esModule = {
   ...common,
+  experiments: {
+    outputModule: true,
+  },
   output: {
     path: `${__dirname}/dist/esm`,
-    filename: 'index.js',
+    library: {
+      type: 'module',
+    },
   },
 };
 esModule.module.rules[0].use.options.configFile = 'tsconfig.esm.json';
