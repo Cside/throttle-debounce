@@ -5,8 +5,14 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "scripts": {
-    "build": "ls tsconfig.*.json | xargs -L 1 -P2 -I{} tsc    -p {}",
-    "watch": "ls tsconfig.*.json | xargs -L 1 -P2 -I{} tsc -w -p {}",
+    "build": "printf 'cjs\\nesm\\n' | xargs -P 2 -L 1 -I{} yarn run build:{}",
+    "build:cjs": "tsc                      && yarn run babel:cjs",
+    "build:esm": "tsc -p tsconfig.esm.json && yarn run babel:esm",
+    "watch": "printf 'cjs\\nesm\\n' | xargs -P 2 -L 1 -I{} yarn run watch:{}",
+    "watch:cjs": "tsc-watch                      --onSuccess 'yarn run babel:cjs'",
+    "watch:esm": "tsc-watch -p tsconfig.esm.json --onSuccess 'yarn run babel:esm'",
+    "babel:cjs": "babel dist/cjs --out-dir dist/cjs --source-maps",
+    "babel:esm": "babel dist/esm --out-dir dist/esm --source-maps --config-file ./.babelrc.esm.js",
     "eslint": "eslint 'src/**/*.ts'",
     "eslint:fix": "eslint --fix 'src/**/*.ts'",
     "prettier": "prettier --write . '!dist/**/*.ts'",
@@ -28,9 +34,8 @@
     "prettier": "^2.7.1",
     "ts-jest": "^29.0.3",
     "ts-loader": "^9.4.1",
-    "typescript": "^4.8.4",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "tsc-watch": "^5.0.3",
+    "typescript": "^4.8.4"
   },
   "jest": {
     "transform": {
@@ -38,5 +43,8 @@
         "ts-jest"
       ]
     }
+  },
+  "dependencies": {
+    "@babel/cli": "^7.19.3"
   }
 }

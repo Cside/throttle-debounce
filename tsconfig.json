@@ -9,7 +9,8 @@
     "removeComments": true,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true
+    "module": "CommonJS",
+    "outDir": "dist/cjs"
   },
   "include": ["src/index.ts"]
 }

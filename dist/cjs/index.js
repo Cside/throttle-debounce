@@ -1,17 +1,8 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it uses a non-standard name for the exports (exports).
-(() => {
-var exports = __webpack_exports__;
-/*!**********************!*\
-  !*** ./src/index.ts ***!
-  \**********************/
+"use strict";
 
-
-Object.defineProperty(exports, "__esModule", ({
+Object.defineProperty(exports, "__esModule", {
   value: true
-}));
+});
 exports.debounce = exports.throttle = void 0;
 const throttle = (fn, wait) => {
   let timerId = null;
@@ -50,11 +41,4 @@ const debounce = (fn, wait) => {
   };
 };
 exports.debounce = debounce;
-})();
-
-var __webpack_export_target__ = exports;
-for(var i in __webpack_exports__) __webpack_export_target__[i] = __webpack_exports__[i];
-if(__webpack_exports__.__esModule) Object.defineProperty(__webpack_export_target__, "__esModule", { value: true });
-/******/ })()
-;
-//# sourceMappingURL=index.cjs.map
+//# sourceMappingURL=index.js.map
