@@ -1,4 +1,4 @@
-const { debounce, throttle } = require('./index.ts');
+import { debounce, throttle } from './index';
 
 for (const obj of [
   { name: 'throttle', func: throttle },

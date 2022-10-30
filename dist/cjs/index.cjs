@@ -9,6 +9,10 @@ var exports = __webpack_exports__;
   \**********************/
 
 
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.debounce = exports.throttle = void 0;
 const throttle = (fn, wait) => {
   let timerId = null;
   return (...args) => {
@@ -53,4 +57,4 @@ for(var i in __webpack_exports__) __webpack_export_target__[i] = __webpack_expor
 if(__webpack_exports__.__esModule) Object.defineProperty(__webpack_export_target__, "__esModule", { value: true });
 /******/ })()
 ;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.cjs.map

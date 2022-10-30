@@ -1,4 +1,4 @@
-const throttle = (fn: (...args: any[]) => void, wait: number) => {
+export const throttle = (fn: (...args: any[]) => void, wait: number) => {
   let timerId: ReturnType<typeof setTimeout> | null = null;
   /* eslint @typescript-eslint/no-explicit-any: 0 */
   return (...args: any[]) => {
@@ -17,9 +17,8 @@ const throttle = (fn: (...args: any[]) => void, wait: number) => {
     });
   };
 };
-exports.throttle = throttle;
 
-const debounce = (fn: (...args: any[]) => void, wait: number) => {
+export const debounce = (fn: (...args: any[]) => void, wait: number) => {
   let timerId: ReturnType<typeof setTimeout> | null = null;
   /* eslint @typescript-eslint/no-explicit-any: 0 */
   return (...args: any[]) => {
@@ -37,4 +36,3 @@ const debounce = (fn: (...args: any[]) => void, wait: number) => {
     });
   };
 };
-exports.debounce = debounce;

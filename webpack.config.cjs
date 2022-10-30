@@ -43,7 +43,7 @@ const common = {
 const commonJS = {
   ...structuredClone(common),
   output: {
-    filename: 'index.js',
+    filename: 'index.cjs',
     path: `${__dirname}/dist/cjs`,
     library: {
       type: 'commonjs',
