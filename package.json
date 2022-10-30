@@ -13,6 +13,7 @@
     "watch:esm": "tsc-watch -p tsconfig.esm.json --onSuccess 'yarn run babel:esm'",
     "babel:cjs": "babel dist/cjs --out-dir dist/cjs --source-maps",
     "babel:esm": "babel dist/esm --out-dir dist/esm --source-maps --config-file ./.babelrc.esm.js",
+    "clean": "rm -rf ./dist/cjs ./dist/esm",
     "eslint": "eslint 'src/**/*.ts'",
     "eslint:fix": "eslint --fix 'src/**/*.ts'",
     "prettier": "prettier --write . '!dist/**/*.ts'",
