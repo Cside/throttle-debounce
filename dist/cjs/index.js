@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.debounce = exports.throttle = void 0;
-const throttle = (fn, wait) => {
+function throttle(fn, wait) {
   let timerId = null;
   return (...args) => {
     return new Promise((resolve, reject) => {
@@ -21,9 +21,9 @@ const throttle = (fn, wait) => {
       }, wait);
     });
   };
-};
+}
 exports.throttle = throttle;
-const debounce = (fn, wait) => {
+function debounce(fn, wait) {
   let timerId = null;
   return (...args) => {
     return new Promise((resolve, reject) => {
@@ -39,6 +39,6 @@ const debounce = (fn, wait) => {
       }, wait);
     });
   };
-};
+}
 exports.debounce = debounce;
 //# sourceMappingURL=index.js.map

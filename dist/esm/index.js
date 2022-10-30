@@ -1,4 +1,4 @@
-export const throttle = (fn, wait) => {
+export function throttle(fn, wait) {
   let timerId = null;
   return (...args) => {
     return new Promise((resolve, reject) => {
@@ -15,8 +15,8 @@ export const throttle = (fn, wait) => {
       }, wait);
     });
   };
-};
-export const debounce = (fn, wait) => {
+}
+export function debounce(fn, wait) {
   let timerId = null;
   return (...args) => {
     return new Promise((resolve, reject) => {
@@ -32,5 +32,5 @@ export const debounce = (fn, wait) => {
       }, wait);
     });
   };
-};
+}
 //# sourceMappingURL=index.js.map
