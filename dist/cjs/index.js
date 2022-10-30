@@ -1,44 +1,27 @@
 "use strict";
 
+var __createBinding = void 0 && (void 0).__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  var desc = Object.getOwnPropertyDescriptor(m, k);
+  if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+    desc = {
+      enumerable: true,
+      get: function () {
+        return m[k];
+      }
+    };
+  }
+  Object.defineProperty(o, k2, desc);
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+var __exportStar = void 0 && (void 0).__exportStar || function (m, exports) {
+  for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.debounce = exports.throttle = void 0;
-function throttle(fn, wait) {
-  let timerId = null;
-  return (...args) => {
-    return new Promise((resolve, reject) => {
-      if (timerId !== null) {
-        return resolve(null);
-      }
-      timerId = setTimeout(() => {
-        timerId = null;
-        try {
-          resolve(fn(...args));
-        } catch (error) {
-          reject(error);
-        }
-      }, wait);
-    });
-  };
-}
-exports.throttle = throttle;
-function debounce(fn, wait) {
-  let timerId = null;
-  return (...args) => {
-    return new Promise((resolve, reject) => {
-      if (timerId) {
-        clearTimeout(timerId);
-      }
-      timerId = setTimeout(() => {
-        try {
-          resolve(fn(...args));
-        } catch (error) {
-          reject(error);
-        }
-      }, wait);
-    });
-  };
-}
-exports.debounce = debounce;
+__exportStar(require("./debounce"), exports);
+__exportStar(require("./throttle"), exports);
 //# sourceMappingURL=index.js.map

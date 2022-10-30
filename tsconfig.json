@@ -11,6 +11,5 @@
     "declarationMap": true,
     "module": "CommonJS",
     "outDir": "dist/cjs"
-  },
-  "include": ["src/index.ts"]
+  }
 }
