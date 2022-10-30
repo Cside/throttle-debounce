@@ -1,3 +1,2 @@
-import { debounce, throttle } from '../dist/mjs/m';
-const ret = debounce(1, 2);
+import { debounce, throttle } from '../dist/esm';
 console.log([throttle, debounce]);

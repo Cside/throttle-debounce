@@ -17,7 +17,7 @@ for (const obj of [
         fn();
 
         jest.runAllTimers();
-        expect(mockedFn).toBeCalledTimes(1);
+        expect(mockedFn).toHaveBeenCalledTimes(1);
       });
       it('called with args', () => {
         for (const args of [[], ['a'], ['a', 'b']]) {
@@ -62,5 +62,3 @@ for (const obj of [
     });
   });
 }
-
-export {}; // https://ichinari.work/TypeScript_20211108

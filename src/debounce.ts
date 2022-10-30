@@ -1,7 +1,10 @@
-export function debounce(fn: (...args: any[]) => void, wait: number) {
+/* eslint @typescript-eslint/no-explicit-any: 0 */
+export function debounce<T extends (...args: any[]) => any>(
+  fn: T,
+  wait: number,
+): (...args: Parameters<T>) => Promise<ReturnType<T>> {
   let timerId: ReturnType<typeof setTimeout> | null = null;
-  /* eslint @typescript-eslint/no-explicit-any: 0 */
-  return (...args: any[]) => {
+  return (...args: Parameters<T>) => {
     return new Promise((resolve, reject) => {
       if (timerId) {
         clearTimeout(timerId);

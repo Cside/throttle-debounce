@@ -12,5 +12,6 @@
     "module": "CommonJS",
     "outDir": "dist/cjs"
   },
+  "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.spec.ts"]
 }
