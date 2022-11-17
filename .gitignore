@@ -1,4 +1,2 @@
-node_modules/
-dist/cjs/
-dist/esm/
-yarn-error.log
+/node_modules/
+/yarn-error.log

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","names":[],"sources":["index.js"],"sourcesContent":["export * from './debounce';\nexport * from './throttle';\n"],"mappings":"AAAA,cAAc,YAAY;AAC1B,cAAc,YAAY"}
